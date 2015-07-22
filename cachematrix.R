@@ -34,7 +34,7 @@ makeCacheMatrix <- function(inputMatrix = matrix())
 
 ## Returns any prievousally calculated inverse from inputMatrix
 ##  or calculates, caches and returns the inverse.
-cacheSolve <- function(inputMatrix)
+cacheSolve <- function(inputMatrix, ...)
 {
   # Check if the input has a cached inverse
   inverse <- inputMatrix$getInverse();
@@ -48,7 +48,7 @@ cacheSolve <- function(inputMatrix)
   # Calculate the inverse
   message("Calculating Inverse");
   matrixData <-inputMatrix$get();
-  inverse <- solve(matrixData);
+  inverse <- solve(matrixData, ...);
   
   # Cache and return the inverse
   inputMatrix$setInverse(inverse);
